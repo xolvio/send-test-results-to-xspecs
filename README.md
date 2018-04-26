@@ -38,6 +38,7 @@ just be sure to set each of the circle variables as appropriate. You can also sp
 xspecs host via env variable if you don't want to specify it as a command line parameter.
 
 | Variable            | Description                                       |
+| ------------------- | ------------------------------------------------- |
 | CIRCLE_SHA1         | The sha1 hash of the commit for the current build |
 | CIRCLE_BUILD_NUM    | The build number for the current build            |
 | CIRCLE_BRANCH       | The branch for the current build                  |
