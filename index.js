@@ -102,11 +102,20 @@ function postTestResultsFileToServer(file, options) {
 }
 
 function getCIEnv() {
-  return process.env.CIRCLE_CI ? "circle" : "";
+  if (process.env.CIRCLE_CI) {
+    return "circle";
+  }
+  if (process.env.BUILD_ID) {
+    return "jenkins";
+  }
+  return "";
 }
 function getBranchFromCI() {
   if (getCIEnv() == "circle") {
     return process.env.CIRCLE_BRANCH;
+  }
+  if (getCIEnv() == "jenkins") {
+    return process.env.GIT_BRANCH;
   }
   return "";
 }
@@ -114,11 +123,17 @@ function getCommitFromCI() {
   if (getCIEnv() == "circle") {
     return process.env.CIRCLE_SHA1;
   }
+  if (getCIEnv() == "jenkins") {
+    return process.env.GIT_BRANCH;
+  }
   return "";
 }
 function getNumberFromCI() {
   if (getCIEnv() == "circle") {
     return process.env.CIRCLE_BUILD_NUM;
+  }
+  if (getCIEnv() == "jenkins") {
+    return process.env.BUILD_NUMBER;
   }
   return "";
 }
