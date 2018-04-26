@@ -1,0 +1,25 @@
+{
+  "name": "send-test-results-to-xspecs",
+  "version": "0.1.0",
+  "description": "Send test results to xspecs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xolvio/send-test-results-to-xspecs.git"
+  },
+  "keywords": [
+    "xspecs"
+  ],
+  "author": "Joshua Ohlman (joshua@ohlman.io)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xolvio/send-test-results-to-xspecs/issues"
+  },
+  "homepage": "https://github.com/xolvio/send-test-results-to-xspecs#readme",
+  "dependencies": {
+    "yargs": "^11.0.0"
+  }
+}
