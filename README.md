@@ -30,17 +30,14 @@ Run it after your test artifacts have been created
 send-test-results-to-xspecs --server my-xspecs.my-server.com junit/test-results.xml cucumber/tests.cucumber
 ```
 
-## Environment Variables
+## Command line arguments
 
-Automatically picks up on env variables from circle ci currently to tag your test results 
-with the correct commit sha, build number, and branch. If you use some other CI provider
-just be sure to set each of the circle variables as appropriate. You can also specify the
-xspecs host via env variable if you don't want to specify it as a command line parameter.
+Run `send-test-results-to-xspecs --help` for help on command line arguments.
 
-| Variable            | Description                                       |
-| ------------------- | ------------------------------------------------- |
-| CIRCLE_SHA1         | The sha1 hash of the commit for the current build |
-| CIRCLE_BUILD_NUM    | The build number for the current build            |
-| CIRCLE_BRANCH       | The branch for the current build                  |
-| XSPECS_HOST         | The server you want to post results to            |
+Each command line argument can be optionally supplied as an environment variable by prepending `XSPECS_`, eg. `XSPECS_BRANCH=master`.
+
+## Environment variables
+
+Environment variables from circle ci & jenkins are automatically parsed and applied to the relevant command line arguments (branch, sha1, build number). If your CI doesn't provide those variables you can manually specify the correct values on the command line.
+
 
