@@ -1,14 +1,14 @@
 {
-  "name": "send-test-results-to-xspecs",
+  "name": "xspecs-cli",
   "version": "0.1.1",
-  "description": "Send test results to xspecs",
+  "description": "CLI tools to use with XSpecs",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/xolvio/send-test-results-to-xspecs.git"
+    "url": "git+https://github.com/xolvio/xspecs-cli.git"
   },
   "keywords": [
     "xspecs"
@@ -16,9 +16,9 @@
   "author": "Joshua Ohlman (joshua@ohlman.io)",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/xolvio/send-test-results-to-xspecs/issues"
+    "url": "https://github.com/xolvio/xspecs-cli/issues"
   },
-  "homepage": "https://github.com/xolvio/send-test-results-to-xspecs#readme",
+  "homepage": "https://github.com/xolvio/xspecs-cli#readme",
   "dependencies": {
     "yargs": "^11.0.0"
   },

@@ -29,6 +29,10 @@ var args = require('yargs')
     alias: ['n', 'build-number'],
     type: 'string',
     describe: 'the current ci build number or id',
+  }).option('debug', {
+    alias: ['d', 'debug'],
+    type: 'boolean',
+    describe: 'to debug or not to debug',
   })
   .env('XSPECS')
   .strict()
@@ -62,14 +66,27 @@ function postTestResultsFileToServer(file, options) {
       reject(new Error('File does not exist: ' + file));
     }
 
+    var fileContent = fs.readFileSync(file, 'utf8');
+
     var data = JSON.stringify({
       commitSha: options.commit,
       organizationId: options.organization,
       repositoryLocation: options.repository,
       branchName: options.branch,
-      results: fs.readFileSync(file, 'utf8'),
+      results: fileContent
     });
-    
+
+    if (options.debug) {
+      console.log('Sending:', {
+        hostname: options.server,
+        commitSha: options.commit,
+        organizationId: options.organization,
+        repositoryLocation: options.repository,
+        branchName: options.branch,
+        results: fileContent
+      });
+    }
+
     var request = https.request({
       method: 'POST',
       hostname: options.server,
