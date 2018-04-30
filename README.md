@@ -7,13 +7,13 @@ Send test results from CI to XSpecs so you can see your specs on your issue tick
 Install it as a dev dependency:
 
 ```
-npm install --save-dev send-test-results-to-xspecs
+npm install --save-dev xspecs-cli
 ```
 
 Run it after your test artifacts have been created
 
 ```
-./node_modules/.bin/send-test-results-to-xspecs --server my-xspecs.my-server.com junit/test-results.xml cucumber/tests.cucumber
+./node_modules/.bin/xspecs-cli --server my-xspecs.my-server.com junit/test-results.xml cucumber/tests.cucumber
 ```
 
 ## Usage as a global module
@@ -21,20 +21,20 @@ Run it after your test artifacts have been created
 Install it as a global dependency:
 
 ```
-npm install --global send-test-results-to-xspecs
+npm install --global xspecs-cli
 ```
 
 Run it after your test artifacts have been created
 
 ```
-send-test-results-to-xspecs --server my-xspecs.my-server.com junit/test-results.xml cucumber/tests.cucumber
+xspecs-cli --server my-xspecs.my-server.com junit/test-results.xml cucumber/tests.cucumber
 ```
 
 ## Command line arguments
 
-Run `send-test-results-to-xspecs --help` for help on command line arguments.
+Run `xspecs-cli --help` for help on command line arguments.
 
-Each command line argument can be optionally supplied as an environment variable by prepending `XSPECS_`, eg. `XSPECS_BRANCH=master`.
+Each command line argument can be optionally supplied as an environment variable by pre-pending `XSPECS_`, eg. `XSPECS_BRANCH=master`.
 
 ## Environment variables
 
