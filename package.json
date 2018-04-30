@@ -1,6 +1,6 @@
 {
   "name": "xspecs-cli",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "CLI tools to use with XSpecs",
   "main": "index.js",
   "scripts": {
@@ -23,6 +23,6 @@
     "yargs": "^11.0.0"
   },
   "bin": {
-    "send-test-results-to-xspecs": "./bin/send-test-results-to-xspecs.js"
+    "xspecs-cli": "./bin/xspecs-cli.js"
   }
 }
