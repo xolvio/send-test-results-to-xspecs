@@ -132,7 +132,7 @@ function getBranchFromCI() {
     return process.env.CIRCLE_BRANCH;
   }
   if (getCIEnv() == "jenkins") {
-    return process.env.GIT_BRANCH;
+    return process.env.GIT_BRANCH.replace(/^origin\//, '');
   }
   return "";
 }
@@ -141,7 +141,7 @@ function getCommitFromCI() {
     return process.env.CIRCLE_SHA1;
   }
   if (getCIEnv() == "jenkins") {
-    return process.env.GIT_BRANCH;
+    return process.env.GIT_COMMIT;
   }
   return "";
 }
