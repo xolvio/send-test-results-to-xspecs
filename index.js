@@ -48,6 +48,9 @@ function main(args) {
 }
 
 function normalizeOptions(opts) {
+  if (! opts.repository) {
+    opts.repository = getRepositoryFromCI();
+  }
   if (! opts.branch) {
     opts.branch = getBranchFromCI();
   }
@@ -119,7 +122,7 @@ function postTestResultsFileToServer(file, options) {
 }
 
 function getCIEnv() {
-  if (process.env.CIRCLE_CI) {
+  if (process.env.CIRCLECI) {
     return "circle";
   }
   if (process.env.BUILD_ID) {
@@ -151,6 +154,15 @@ function getNumberFromCI() {
   }
   if (getCIEnv() == "jenkins") {
     return process.env.BUILD_NUMBER;
+  }
+  return "";
+}
+function getRepositoryFromCI() {
+  if (getCIEnv() == "circle") {
+    return process.env.CIRCLE_REPOSITORY_URL;
+  }
+  if (getCIEnv() == "jenkins") {
+    return process.env.GIT_URL;
   }
   return "";
 }

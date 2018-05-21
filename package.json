@@ -1,6 +1,6 @@
 {
   "name": "xspecs-cli",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "CLI tools to use with XSpecs",
   "main": "index.js",
   "scripts": {
