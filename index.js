@@ -35,7 +35,8 @@ var args = require('yargs')
     describe: 'to debug or not to debug',
   })
   .env('XSPECS')
-  .strict()
+  // Strict would be nice, but we use XSPECS_* env variables in other ways and this leads to a confict.
+  // .strict() 
   .argv
   ;
 
