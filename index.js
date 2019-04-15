@@ -33,6 +33,9 @@ var args = require('yargs')
     alias: ['d', 'debug'],
     type: 'boolean',
     describe: 'to debug or not to debug',
+  }).option('insecure', {
+    type: 'boolean',
+    describe: 'ignore ssl validation',
   })
   .env('XSPECS')
   .strict()
@@ -89,14 +92,24 @@ function postTestResultsFileToServer(file, options) {
         results: fileContent
       });
     }
+    
+    const agentOptions = {
+      host: 'www.example.com',
+      port: '443',
+      path: '/',
+      rejectUnauthorized: false,
+    };
 
+    const agent = new https.Agent(agentOptions);
+    
     var request = https.request({
       method: 'POST',
       hostname: options.server,
       path: '/RecieveTestResultsCommand',
       headers: {
         'Content-Type': 'application/json'
-      }
+      },
+      agent: options.insecure ? agent : null,
     }, (response) => {
       var body = [];
       response.on('data', (chunk) => body.push(chunk));
