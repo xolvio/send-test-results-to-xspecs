@@ -1,6 +1,6 @@
 {
   "name": "send-test-results-to-xspecs",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "CLI tools to use with XSpecs",
   "main": "index.js",
   "scripts": {
