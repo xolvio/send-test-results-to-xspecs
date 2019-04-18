@@ -94,10 +94,11 @@ function postTestResultsFileToServer(file, options) {
       });
     }
     
+    const requestPath = '/RecieveTestResultsCommand';
     const agentOptions = {
-      host: 'www.example.com',
+      host: options.server,
       port: '443',
-      path: '/',
+      path: requestPath,
       rejectUnauthorized: false,
     };
 
@@ -106,7 +107,7 @@ function postTestResultsFileToServer(file, options) {
     var request = https.request({
       method: 'POST',
       hostname: options.server,
-      path: '/RecieveTestResultsCommand',
+      path: requestPath,
       headers: {
         'Content-Type': 'application/json'
       },
